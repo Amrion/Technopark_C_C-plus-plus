@@ -18,6 +18,10 @@ jobs:
             cppcheck gtest.cpp
             
       - run: |
+             sudo apt-get update 
+             sudo apt-get install clang-format 
+            
+      - run: |
              cd project/src
              clang-format -i -style=WebKit main.c
              clang-format -i -style=WebKit parser_url.c
