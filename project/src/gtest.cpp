@@ -19,7 +19,6 @@ TEST(URL_TEST, TEST_WITH_PRT_SHORT) {
     char* my_url = "https://vk.com/im";
     url_info* result_url = parser(my_url);
 
-
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
     EXPECT_STREQ(result_url->protocol, url.protocol);
     for (int i = 0; i < 2; ++i) {
