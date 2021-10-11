@@ -9,6 +9,7 @@ extern "C" {
 TEST(URL_TEST, TEST_WITH_PRT_SHORT) {
     url_info url;
 
+
     url.protocol = "https";
     url.main_domain = "vk";
     url.other_domains = (char**) malloc(2 * sizeof (char*));
