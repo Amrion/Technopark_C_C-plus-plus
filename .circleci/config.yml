@@ -1,11 +1,9 @@
-version: 2.1
+version: 2
 jobs:
   build:
-    docker:
-      - image: cimg/node:14.10.1 # the primary container, where your job's commands are run
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    machine:
+      image: ubuntu-1604:201903-01
+      
     steps:
       - checkout
       - run: sudo apt install cppcheck
