@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  build:
+    machine:
+      image: ubuntu-1604:201903-01
+     
+    steps:
+      - checkout
+      - run: |
+             sudo apt-get update 
+             sudo apt-get install cppcheck 
+      
+      - run: |
+            cd project/src
+            cppcheck main.c
+            cppcheck parser_url.c
+            cppcheck print.c
+            cppcheck gtest.cpp
+             
+
+   
