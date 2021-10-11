@@ -29,15 +29,15 @@ jobs:
              clang-format -i -style=WebKit gtest.cpp
              
       - run: |
-             sudo apt-get install python-pip
-             sudo pip install cpplint
-             
+             sudo apt-get update
+             sudo apt-get install valgrind
+       
       - run: |
              cd project/src
-             cpplint main.c
-             cpplint parser_url.c
-             cpplint print.c
-             cpplint gtest.cpp
+             valgrind --tool=memcheck --leak-check=yes main.c
+             valgrind --tool=memcheck --leak-check=yes parser_url.c
+             valgrind --tool=memcheck --leak-check=yes print.c
+             valgrind --tool=memcheck --leak-check=yes gtest.cpp
              
 
    
