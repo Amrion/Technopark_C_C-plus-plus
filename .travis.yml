@@ -1,38 +1,41 @@
-dist:     trusty    # используем Ubuntu 14.04 Trusty Tahr (а не 12.02 Precise Pangolin)
-sudo:     required  # используем Virtual Machine (а не Docker container)
+dlanguage: cpp
+dist: xenial
 
-language: cpp
+addons:
+  apt:
+    update: true
+    packages:
+      - ant
+      - aria2
+      - build-essential
+      - cmake
+      - libgl1-mesa-dev
+      - libglu1-mesa-dev
+      - libsdl2-dev
+      - pv
+      - sendemail
+      - software-properties-common
+    sources:
+      - sourceline: 'ppa:ubuntu-toolchain-r/test'
+      - sourceline: 'ppa:ubuntu-sdk-team/ppa'
+      
+matrix:
+  include:
+    - os: linux
+      compiler: "gcc"
+      env: PPSSPP_BUILD_TYPE=Linux PVS_ANALYZE=Yes
+    - os: linux
+      compiler: "clang"
+      env: PPSSPP_BUILD_TYPE=Linux
+      
+before_install:
+  - travis_retry bash .travis.sh travis_before_install
 
-os:
-    - linux
-    
- compiler:
-    - gcc
-    
-env:
-    - TARGET_CPU=amd64 BUILD_CONFIGURATION=Debug
-    - TARGET_CPU=amd64 BUILD_CONFIGURATION=Release
-    - TARGET_CPU=x86 BUILD_CONFIGURATION=Debug
-    - TARGET_CPU=x86 BUILD_CONFIGURATION=Release
-          
 install:
-    - source ci/travis/install-$TRAVIS_OS_NAME.sh
-    
+  - travis_retry bash .travis.sh travis_install
+
 script:
-    - mkdir build
-    - cd build
-    - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_CONFIGURATION -DTARGET_CPU=$TARGET_CPU
-    - cmake --build .
-    - ctest --output-on-failure
+  - bash .travis.sh travis_script
 
-deploy:
-    provider:     releases
-    file:         <package-file>
-    skip_cleanup: true
-    overwrite:    true
-
-    api_key:
-        secure:   <encrypted-github-token>
-
-    on:
-        tags:     true
+after_success:
+  - bash .travis.sh travis_after_success
