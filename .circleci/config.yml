@@ -28,5 +28,16 @@ jobs:
              clang-format -i -style=WebKit print.c
              clang-format -i -style=WebKit gtest.cpp
              
+      - run: |
+             sudo apt-get install python-pip
+             sudo pip install cpplint
+             
+      - run: |
+             cd project/src
+             cpplint main.c
+             cpplint parser_url.c
+             cpplint print.c
+             cpplint gtest.cpp
+             
 
    
