@@ -38,12 +38,12 @@ jobs:
              
       - run: |
              sudo apt-get update
-             sudo apt-get install build-essential cmake 
+             sudo apt-get install cmake 
              
       - run: |
              mkdir project/cmake-built
              cd project/cmake-built
-             cmake..
+             cmake ../
              make
        
       - run: |
