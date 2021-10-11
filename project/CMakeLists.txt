@@ -1,6 +1,18 @@
 cmake_minimum_required(VERSION 3.20)
-project(project C)
+project(project C CXX)
 
 set(CMAKE_C_STANDARD 99)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(project src/main.c)
+set(LIB_SOURCE_FILES src/parser_url.c)
+add_library(main STATIC ${LIB_SOURCE_FILES})
+
+add_executable(project src/main.c src/parser_url.c src/print.c)
+target_link_libraries(project main)
+
+enable_testing()
+find_package(GTest REQUIRED)
+
+include_directories(${GTEST_INCLUDE_DIRS})
+add_executable(gtest src/gtest.cpp)
+target_link_libraries(gtest ${GTEST_LIBRARIES} main)

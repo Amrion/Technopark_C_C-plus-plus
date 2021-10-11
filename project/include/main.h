@@ -1,12 +1,22 @@
 #pragma once
 
-#define AVERANGE_LENGTH 10
+#include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+
+#define AVERANGE_LENGTH_DOM 10
+#define AVERANGE_LENGTH 25
+#define AVERANGE_LENGTH_NAME_DOM 25
+#define BUFFER 301
 #define APPR_LIMIT 7
 
-typedef struct url_info {
-    const char* protocol;
-    const char* main_domain;
-    const char** other_domains;
+typedef struct {
+    char* protocol;
+    char* main_domain;
+    char** other_domains;
 }url_info;
 
 url_info* parser(char*);
+int print(url_info);
