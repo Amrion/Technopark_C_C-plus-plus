@@ -1,11 +1,21 @@
-version: 2.1
-jobs:
-  build:
-    docker:
-      - image: cimg/node:14.10.1 # the primary container, where your job's commands are run
-        auth:
-          username: mydockerhub-user
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
-    steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+machine:
+  java:
+    version: 1.8
+    
+general:
+  branches:
+    only:
+      - master # list of branches to build
+      
+dependencies:
+  pre:
+    - wget http://url_for_your_libs
+    - wget http://selenium-release.storage.googleapis.com/2.45/selenium-server-standalone-2.45.0.jar #download selenium-server
+    - /sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_99.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :99 -ac -screen 0 1280x1024
+    - sleep 3
+    - java -jar selenium-server-standalone-2.45.0.jar > /dev/null 2>/dev/null:
+        background: true  #run selenium server in background
+    - sleep 30
+    
+test:
+  override:
