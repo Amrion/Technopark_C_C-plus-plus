@@ -15,7 +15,8 @@ TEST(URL_TEST, TEST_WITH_PRT_SHORT) {
     url.other_domains[0] = "com";
     url.other_domains[1] = "im";
 
-    url_info* result_url = parser("https://vk.com/im");
+    char* my_url = "https://vk.com/im";
+    url_info* result_url = parser(my_url);
 
 
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
@@ -36,7 +37,8 @@ TEST(URL_TEST, TEST_WITH_PRT_MEDIUM) {
     url.other_domains[1] = "Vinograduss";
     url.other_domains[2] = "masterclass";
 
-    url_info* result_url = parser("https://github.com/Vinograduss/masterclass");
+    char* my_url = "https://github.com/Vinograduss/masterclass";
+    url_info* result_url = parser(my_url);
 
 
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
@@ -60,7 +62,8 @@ TEST(URL_TEST, TEST_WITH_PRT_LONG) {
     url.other_domains[4] = "main";
     url.other_domains[5] = "test.md";
 
-    url_info* result_url = parser("https://github.com/Vinograduss/masterclass/blob/main/test.md");
+    char* my_url =  "https://github.com/Vinograduss/masterclass/blob/main/test.md";
+    url_info* result_url = parser(my_url);
 
 
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
@@ -80,7 +83,8 @@ TEST(URL_TEST, TEST_WITH_PRT_GET) {
     url.other_domains[0] = "com";
     url.other_domains[1] = "im";
 
-    url_info* result_url = parser("https://vk.com/im?peers=252862492_283866136_c280_215950077_71276649");
+    char* my_url = "https://vk.com/im?peers=252862492_283866136_c280_215950077_71276649";
+    url_info* result_url = parser(my_url);
 
 
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
@@ -99,8 +103,8 @@ TEST(URL_TEST, TEST_WWW) {
     url.other_domains = (char**) malloc(2 * sizeof(char*));
     url.other_domains[0] = "ru";
 
-    url_info* result_url = parser("www.mail.ru");
-
+    char* my_url = "www.mail.ru";
+    url_info* result_url = parser(my_url);
 
     EXPECT_STREQ(result_url->main_domain, url.main_domain);
     EXPECT_STREQ(result_url->protocol, url.protocol);
@@ -108,6 +112,13 @@ TEST(URL_TEST, TEST_WWW) {
         EXPECT_STREQ(result_url->other_domains[i], url.other_domains[i]);
     }
 
+}
+
+TEST(URL_TEST, TEST_NO_ADDRESS) {
+    char* my_url = "wdasdasd";
+    url_info* result_url = parser(my_url);
+
+    EXPECT_EQ(result_url, nullptr);
 }
 
 int main(int argc, char** argv) {
