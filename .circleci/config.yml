@@ -33,11 +33,9 @@ jobs:
              sudo apt-get install valgrind
        
       - run: |
-             cd project/src
-             valgrind --tool=memcheck --leak-check=yes main.c
-             valgrind --tool=memcheck --leak-check=yes parser_url.c
-             valgrind --tool=memcheck --leak-check=yes print.c
-             valgrind --tool=memcheck --leak-check=yes gtest.cpp
+             cd project/cmake-build-debug
+             valgrind --tool=memcheck --leak-check=yes ./project
+             valgrind --tool=memcheck --leak-check=yes ./gtest
              
 
    
