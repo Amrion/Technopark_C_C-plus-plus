@@ -17,7 +17,7 @@ jobs:
             cppcheck print.c
             cppcheck gtest.cpp
             
-       - run: |
+      - run: |
              cd project/src
              clang-format -i -style=WebKit main.c
              clang-format -i -style=WebKit parser_url.c
