@@ -67,6 +67,9 @@ url_info* parser(char* url) {
 
     my_url->other_domains = (char**) calloc(AVERANGE_LENGTH_DOM * sizeof(char*), AVERANGE_LENGTH_DOM);
     if (!my_url->other_domains) {
+        free (my_url->protocol);
+        free (my_url->main_domain);
+
         return NULL;
     }
 
