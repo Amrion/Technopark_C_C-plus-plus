@@ -7,5 +7,5 @@ jobs:
           username: mydockerhub-user
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
-      - sudo apt install cppcheck
-      - cppcheck main.c
+      - checkout
+      - run: sudo apt install cppcheck
