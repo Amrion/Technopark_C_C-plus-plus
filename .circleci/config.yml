@@ -67,6 +67,10 @@ jobs:
              ls -la
              cd googletest
              ls -la
+             cd include
+             cd gtest
+             pwd
+             ls -la
           
       #- run: |
        #      sudo apt-get install libgtest-dev
