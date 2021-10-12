@@ -53,8 +53,11 @@ jobs:
              cd googletest-release-1.8.0
              cmake -DBUILD_SHARED_LIBS=ON .
              make
+             pwd
              ls -la
+             cd googletest
              sudo cp -a googletest/include/gtest /usr/include/
+             sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
              
           
       #- run: |
