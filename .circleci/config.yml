@@ -43,7 +43,7 @@ jobs:
       - run: |
              sudo apt-get update
              sudo apt-get install libgtest-dev
-             cd /usr/src/googletest/googletest
+             cd /usr/src/gtest
              sudo mkdir build
              cd build
              sudo cmake ..
@@ -51,9 +51,7 @@ jobs:
              sudo cp libgtest* /usr/lib/
              cd ..
              sudo rm -rf build
-             sudo mkdir /usr/local/lib/googletest
-             sudo ln -s /usr/lib/libgtest.a /usr/local/lib/googletest/libgtest.a
-             sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/googletest/libgtest_main.a
+             sudo mkdir /usr/local/lib/gtest
              
       - run: |
              mkdir project/cmake-built
