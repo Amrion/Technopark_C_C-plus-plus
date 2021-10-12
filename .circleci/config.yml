@@ -61,12 +61,12 @@ jobs:
              cmake ..
              make
              mkdir coverage
-             gcov -b -l -p -c *.gcno
-             gcovr -r .. -e ../.cmake-built --html --html-details -o coverage/coverage.html
+             # gcov -b -l -p -c *.gcno
+             gcovr -r ../ --html -o coverage/coverage.html --html-details
              
              
       - store_artifacts:
-             path: project/cmake-built
+             path: project/cmake-built/coverage
              
       - run: |
              cd project/cmake-built
