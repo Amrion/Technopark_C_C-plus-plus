@@ -38,7 +38,11 @@ jobs:
              
       - run: |
              sudo apt-get update
-             sudo apt-get install cmake 
+             sudo apt-get install cmake
+          
+      - run: |
+             sudo apt-get update
+             sudo apt-get install libgtest-dev
              
       - run: |
              mkdir project/cmake-built
