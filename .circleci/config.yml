@@ -45,7 +45,7 @@ jobs:
              
       - run: |
              sudo apt-get update
-             sudo apt-get wget
+             sudo apt-get install wget
              
       - run: |
              wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
