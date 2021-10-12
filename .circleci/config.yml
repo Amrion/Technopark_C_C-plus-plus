@@ -45,8 +45,9 @@ jobs:
              cd /usr/src/gtest
              sudo cmake .
              sudo make
-             sudo cp -R /usr/src/gtest/*.a /usr/lib/x86_64-linux-gnu
-             sudo cp -R /usr/src/googletest/*.a /usr/lib/x86_64-linux-gnu
+             sudo cp -R /usr/src/googletest/googletest*.a /usr/lib/x86_64-linux-gnu
+             
+             
              
              
       - run: |
