@@ -50,7 +50,7 @@ jobs:
       - run: |
              mkdir project/cmake-built
              cd project/cmake-built
-             cmake ../
+             cmake ..
              make
              
       - run: |
