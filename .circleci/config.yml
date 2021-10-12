@@ -56,6 +56,8 @@ jobs:
              pwd
              ls -la
              cd googletest
+             pwd
+             ls -la
              sudo cp -a googletest/include/gtest /usr/include/
              sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
              
