@@ -118,7 +118,7 @@ TEST(URL_TEST, TEST_NO_ADDRESS) {
     char* my_url = "wdasdasd";
     url_info* result_url = parser(my_url);
 
-    EXPECT_EQ(result_url, nullptr);
+    EXPECT_EQ(result_url, (url_info*)0);
 }
 
 int main(int argc, char** argv) {
