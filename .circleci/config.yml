@@ -45,11 +45,8 @@ jobs:
              cd /usr/src/gtest
              sudo cmake .
              sudo make
-             sudo cp -R /usr/src/googletest/googletest*.a /usr/lib/x86_64-linux-gnu
-             
-             
-             
-             
+             ls -la
+         
       - run: |
              mkdir project/cmake-built
              cd project/cmake-built
