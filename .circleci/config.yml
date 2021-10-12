@@ -62,6 +62,7 @@ jobs:
              cd ..
              cd usr/
              cd src
+             pwd
              ls -la
           
       #- run: |
