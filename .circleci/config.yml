@@ -62,6 +62,7 @@ jobs:
              make
              mkdir coverage
              gcovr -r .. -e ../.build/coverage --html --html-details -o coverage.html
+             ls -la
              
       - store_artifacts:
              path: project/cmake-built/coverage
