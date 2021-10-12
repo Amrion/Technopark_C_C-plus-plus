@@ -46,20 +46,22 @@ jobs:
              sudo cmake .
              sudo make
              ls -la
+             cd src
+             ls -la
          
-      - run: |
-             mkdir project/cmake-built
-             cd project/cmake-built
-             cmake ..
-             make
+      #- run: |
+       #      mkdir project/cmake-built
+        #     cd project/cmake-built
+         #    cmake ..
+          #   make
              
-      - run: |
-             cd project/cmake-built
-             ./gtest
+     # - run: |
+      #       cd project/cmake-built
+       #      ./gtest
        
-      - run: |
-             cd project/cmake-build
-             valgrind --tool=memcheck --leak-check=yes ./project
+      #- run: |
+       #      cd project/cmake-build
+        #     valgrind --tool=memcheck --leak-check=yes ./project
              
 
    
