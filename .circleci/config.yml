@@ -62,7 +62,7 @@ jobs:
              make
              mkdir coverage
              gcov -b -l -p -c *.gcno
-             gcovr -r .. -e --html --html-details -o coverage.html
+             gcovr -r .. -e ../.cmake-built --html --html-details -o coverage/coverage.html
              
              
       - store_artifacts:
