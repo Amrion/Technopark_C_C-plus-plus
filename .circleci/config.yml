@@ -9,6 +9,17 @@ jobs:
       - run: |
              sudo apt-get update 
              sudo apt-get install cppcheck 
+             
+      - run: |
+             cd ..
+             pwd
+             ls -la
+             cd ..
+             pwd
+             ls -la
+             cd ..
+             pwd
+             ls -la
       
       - run: |
             cd project/src
@@ -53,11 +64,6 @@ jobs:
              cd googletest-release-1.8.0
              cmake -DBUILD_SHARED_LIBS=ON .
              make
-             pwd
-             ls -la
-             cd googletest
-             pwd
-             ls -la
              sudo cp -a googletest/include/gtest /usr/include/
              sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
              
