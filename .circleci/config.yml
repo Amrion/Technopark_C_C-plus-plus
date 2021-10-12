@@ -60,13 +60,15 @@ jobs:
              cd project/cmake-built
              cmake ..
              make
+             mkdir coverage
+             gcovr -r .. -e ../.build/coverage --html --html-details -o coverage.html
              
       - run: |
              cd project/cmake-built
              ./gtest
        
       - run: |
-             cd project/cmake-build
+             cd project/cmake-built
              valgrind --tool=memcheck --leak-check=yes ./project
              
 
