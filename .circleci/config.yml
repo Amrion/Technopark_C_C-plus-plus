@@ -54,6 +54,7 @@ jobs:
              cmake -DBUILD_SHARED_LIBS=ON .
              make
              sudo cp -a googletest/include/gtest /usr/include/
+             sudo cp -a googletest /usr/src
              sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
              
       - run: |
@@ -63,6 +64,8 @@ jobs:
              cd usr/
              cd src
              pwd
+             ls -la
+             cd googletest
              ls -la
           
       #- run: |
