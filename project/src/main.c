@@ -1,16 +1,20 @@
 #include "../include/main.h"
 
-int main() {
+int main(int argc, char* argv[]) {
     url_info url;
     char string_url[BUFFER];
 
-    if (scanf("%300s", string_url) != 1) {
-        return 1;
-    }
-
     url_info* test;
 
-    test = parser(string_url);
+    if (argc > 1) {
+        test = parser(argv[1]);
+    } else {
+        if (scanf("%300s", string_url) != 1) {
+            return 1;
+        }
+
+        test = parser(string_url);
+    }
 
     if (!test) {
         return 1;
