@@ -39,29 +39,45 @@ jobs:
       - run: |
              sudo apt-get update
              sudo apt-get install cmake
-          
-      - run: |
-             sudo apt-get install libgtest-dev
-             cd /usr/src/gtest
-             sudo cmake .
-             sudo make
-             ls -la
-             cd src
-             ls -la
-         
-      #- run: |
-       #      mkdir project/cmake-built
-        #     cd project/cmake-built
-         #    cmake ..
-          #   make
              
-     # - run: |
-      #       cd project/cmake-built
-       #      ./gtest
-       
+      - run: |
+             sudo apt install checkinstall build-essential autoconf automake
+             
+      - run: |
+             sudo apt-get update
+             sudo apt-get wget
+             
+      - run: |
+             wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
+             tar xf release-1.8.0.tar.gz
+             cd googletest-release-1.8.0
+             cmake -DBUILD_SHARED_LIBS=ON .
+             make
+             sudo cp -a googletest/include/gtest /usr/include
+             sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
+          
       #- run: |
-       #      cd project/cmake-build
-        #     valgrind --tool=memcheck --leak-check=yes ./project
+       #      sudo apt-get install libgtest-dev
+        #     cd /usr/src/gtest
+         #    sudo cmake .
+          #   sudo make
+           #  ls -la
+            # cd src
+             #ls -la
+         
+      - run: |
+              mkdir project/cmake-built
+             cd project/cmake-built
+             cmake ..
+             make
+             
+      - run: |
+             cd project/cmake-built
+             ./gtest
+       
+      - run: |
+             cd project/cmake-build
+             valgrind --tool=memcheck --leak-check=yes ./project
              
 
    
