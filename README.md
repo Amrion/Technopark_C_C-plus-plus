@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1.svg?style=svg)](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1)
+[![CircleCI](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1.svg?style=shield)](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1)
 
 Вариант #18
 
