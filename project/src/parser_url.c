@@ -28,7 +28,7 @@ url_info* parser(char* url) {
 
     url_info* my_url = (url_info*) malloc(sizeof (url_info));
 
-    my_url->protocol = (char *) malloc(APPR_LIMIT);
+    my_url->protocol = (char *) calloc(APPR_LIMIT, sizeof(char));
 
     if (i == APPR_LIMIT) {
         my_url->protocol[0] = '-';
