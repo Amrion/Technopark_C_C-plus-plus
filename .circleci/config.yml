@@ -60,9 +60,18 @@ jobs:
              cd project/cmake-built
              cmake ..
              make
+             ./project
              mkdir coverage
-             # gcov -b -l -p -c *.gcno
              gcovr -r ../ --html -o coverage/coverage.html --html-details
+             
+             
+             
+      #- run: |
+             #cd project/cmake-built
+             #cmake -DCMAKE_BUILD_TYPE=PROFILE ../
+             #make VERBOSE=1
+             #mkdir coverage
+             #gcovr -r ../ --html -o coverage/coverage.html --html-details
              
              
       - store_artifacts:
