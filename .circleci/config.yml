@@ -44,25 +44,23 @@ jobs:
              sudo apt-get update
              sudo apt-get install libgtest-dev
              cd /usr/src/gtest
-             sudo mkdir build
-             cd build
-             sudo cmake ..
+             sudo cmake .
              sudo make
-             sudo cp libgtest* /usr/lib/
-             cd ..
-             sudo rm -rf build
-             sudo mkdir /usr/local/lib/gtest
+             sudo cp -R /usr/src/gtest/*.a /usr/lib/x86_64-linux-gnu
              
       - run: |
              mkdir project/cmake-built
              cd project/cmake-built
              cmake ../
              make
+             
+      - run: |
+             cd project/cmake-built
+             ./gtest
        
       - run: |
-             cd project/cmake-build-debug
+             cd project/cmake-build
              valgrind --tool=memcheck --leak-check=yes ./project
-             valgrind --tool=memcheck --leak-check=yes ./gtest
              
 
    
