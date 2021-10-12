@@ -39,48 +39,12 @@ jobs:
       - run: |
              sudo apt-get update
              sudo apt-get install cmake
-             
-      - run: |
-             sudo apt install checkinstall build-essential autoconf automake
-             
-      - run: |
-             sudo apt-get update
-             sudo apt-get install wget
-             
-      - run: |
-             wget https://github.com/google/googletest/archive/release-1.8.0.tar.gz
-             tar xf release-1.8.0.tar.gz
-             cd googletest-release-1.8.0
-             cmake -DBUILD_SHARED_LIBS=ON .
-             make
-             sudo cp -a googletest/include/gtest /usr/include/
-             sudo cp -a googletest /usr/src
-             sudo cp -a gtest /usr/src
-             sudo cp -a googlemock/gtest/libgtest_main.so googlemock/gtest/libgtest.so /usr/lib/
-             
-      - run: |
-             cd ..
-             cd ..
-             cd ..
-             cd usr/
-             cd src
-             pwd
-             ls -la
-             cd googletest
-             ls -la
-             cd include
-             cd gtest
-             pwd
-             ls -la
           
-      #- run: |
-       #      sudo apt-get install libgtest-dev
-        #     cd /usr/src/gtest
-         #    sudo cmake .
-          #   sudo make
-           #  ls -la
-            # cd src
-             #ls -la
+      - run: |
+             sudo apt-get install libgtest-dev
+             cd /usr/src/gtest
+             sudo cmake .
+             sudo make
          
       - run: |
              mkdir project/cmake-built
