@@ -63,6 +63,9 @@ jobs:
              mkdir coverage
              gcovr -r .. -e ../.build/coverage --html --html-details -o coverage.html
              
+      - store_artifacts:
+             path: project/cmake-built/coverage
+             
       - run: |
              cd project/cmake-built
              ./gtest
