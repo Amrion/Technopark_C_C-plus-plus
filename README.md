@@ -1,5 +1,5 @@
 [![CircleCI](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1.svg?style=shield)](https://circleci.com/gh/Amrion/Technopark_C_C-plus-plus/tree/hw1)
-[![CircleCI](https://img.shields.io/badge/coverage-92,6%25-9cf)](https://85-415351309-gh.circle-artifacts.com/0/project/cmake-built/coverage/coverage.html)
+[![CircleCI](https://img.shields.io/badge/coverage-88,2%25-9cf)](https://100-415351309-gh.circle-artifacts.com/0/project/cmake-built/coverage/coverage.html)
 
 
 Вариант #18
