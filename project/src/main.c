@@ -10,6 +10,7 @@ int main(int argc, char* argv[]) {
         test = parser(argv[1]);
     } else {
         if (scanf("%300s", string_url) != 1) {
+            free (test);
             return 1;
         }
 
@@ -43,6 +44,7 @@ int main(int argc, char* argv[]) {
         i++;
     }
     free(url.other_domains);
+    free (test);
 
     return 0;
 }
