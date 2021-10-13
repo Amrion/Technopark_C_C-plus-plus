@@ -69,6 +69,7 @@ url_info* parser(char* url) {
     if (!my_url->other_domains) {
         free (my_url->protocol);
         free (my_url->main_domain);
+        free (my_url);
 
         return NULL;
     }
