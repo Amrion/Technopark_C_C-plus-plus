@@ -4,7 +4,7 @@ int main(int argc, char* argv[]) {
     url_info url;
     char string_url[BUFFER];
 
-    url_info* test;
+    url_info* test = NULL;
 
     if (argc > 1) {
         test = parser(argv[1]);

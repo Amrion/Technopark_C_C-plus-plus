@@ -26,8 +26,9 @@ url_info* parser(char* url) {
         }
     }
 
-    url_info* my_url = (url_info*) malloc(sizeof (url_info));
+    url_info* my_url = (url_info*) calloc(sizeof (url_info));
     if (!my_url) {
+
         return NULL;
     }
 
