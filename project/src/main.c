@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
         test = parser(argv[1]);
     } else {
-        if (scanf("%100s", string_url) != 1) {
+        if (scanf("%71s", string_url) != 1) {
             free (test);
             return 1;
         }
