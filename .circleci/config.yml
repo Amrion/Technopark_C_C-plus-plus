@@ -60,7 +60,7 @@ jobs:
              cd project/cmake-built
              cmake ..
              make
-             ./project "www.mail.ru"
+             ./project "https://vk.com/im"
              ./gtest
              mkdir coverage
              gcovr -r ../ --html -o coverage/coverage.html --html-details
