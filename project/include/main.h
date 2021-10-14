@@ -17,6 +17,12 @@ typedef struct {
 
 url_info* parser(char*);
 
+int parser_prtcl(char*, url_info*, int);
+
+int parser_md(char*, url_info*, int);
+
+int parser_str_od(char*, url_info*, int);
+
 int print(url_info);
 
 void free_url(url_info*);

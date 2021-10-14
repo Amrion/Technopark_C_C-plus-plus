@@ -5,8 +5,8 @@ void free_url(url_info* url) {
         return;
     }
 
-    free (url->main_domain);
     free (url->protocol);
+    free (url->main_domain);
 
     int i = 0;
 

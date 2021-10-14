@@ -16,7 +16,7 @@ include_directories(include)
 
 add_library(main STATIC ${LIB_SOURCE_FILES} ${LIB_HEADERS_FILES})
 
-add_executable(project src/main.c src/parser_url.c src/print.c src/free_url.c)
+add_executable(project src/main.c src/parser_url.c src/print.c src/free_url.c src/parser_md.c src/parser_prtcl.c src/parser_str_od.c)
 target_link_libraries(project main m -fprofile-arcs -ftest-coverage -fPIC)
 
 enable_testing()
@@ -25,5 +25,5 @@ find_package(Threads)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(gtest src/gtest.cpp)
+add_executable(gtest src/gtest.cpp src/parser_md.c src/parser_prtcl.c src/parser_str_od.c)
 target_link_libraries(gtest ${GTEST_LIBRARIES} pthread main)

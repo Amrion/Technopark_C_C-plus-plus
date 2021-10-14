@@ -25,7 +25,6 @@ int main(int argc, char* argv[]) {
 
     if (!test) {
         free (string_url);
-        free_url(&url);
 
         return 1;
     } else {
