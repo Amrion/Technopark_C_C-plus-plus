@@ -9,7 +9,7 @@
 #define AVERANGE_LENGTH_DOM 10
 #define AVERANGE_LENGTH 25
 #define AVERANGE_LENGTH_NAME_DOM 25
-#define BUFFER 301
+#define BUFFER 151
 #define APPR_LIMIT 7
 
 typedef struct {
@@ -19,4 +19,5 @@ typedef struct {
 }url_info;
 
 url_info* parser(char*);
+
 int print(url_info);

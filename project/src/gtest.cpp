@@ -1,8 +1,8 @@
 #include "gtest/gtest.h"
+#include <cstddef>
 
 extern "C" {
-#include <cstddef>
-#include "../include/main.h"
+    #include "main.h"
 }
 
 

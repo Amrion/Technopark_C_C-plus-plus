@@ -1,7 +1,7 @@
-#include "../include/main.h"
+#include "main.h"
 
 int main(int argc, char* argv[]) {
-    url_info url;
+    url_info url = {url.protocol = "", url.main_domain = "", url.other_domains = NULL};
     char string_url[BUFFER];
 
     url_info* test = NULL;
@@ -9,7 +9,7 @@ int main(int argc, char* argv[]) {
     if (argc > 1) {
         test = parser(argv[1]);
     } else {
-        if (scanf("%300s", string_url) != 1) {
+        if (scanf("%150s", string_url) != 1) {
             free (test);
             return 1;
         }

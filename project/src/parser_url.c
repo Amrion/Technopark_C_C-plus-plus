@@ -1,4 +1,4 @@
-#include "../include/main.h"
+#include "main.h"
 
 url_info* parser(char* url) {
     if (!url) {
@@ -14,7 +14,7 @@ url_info* parser(char* url) {
         if (url[i] == '\0') {
             return NULL;
         }
-        i++;
+        ++i;
     }
 
     i = 0;
@@ -26,7 +26,7 @@ url_info* parser(char* url) {
         }
     }
 
-    url_info* my_url = (url_info*) calloc(sizeof (url_info), 1);
+    url_info* my_url = (url_info*) malloc(sizeof (url_info));
     if (!my_url) {
 
         return NULL;

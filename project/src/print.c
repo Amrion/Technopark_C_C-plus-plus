@@ -1,4 +1,4 @@
-#include "../include/main.h"
+#include "main.h"
 
  int print(url_info url) {
     if (printf("Протокол = %s\n", url.protocol) < 0) {
