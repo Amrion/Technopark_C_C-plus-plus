@@ -2,7 +2,11 @@
 
 int main(int argc, char* argv[]) {
     url_info url = {url.protocol = "", url.main_domain = "", url.other_domains = NULL};
+
     char* string_url = (char*) calloc(sizeof (char), BUFFER);
+    if (!string_url) {
+        return 1;
+    }
 
     url_info* test = NULL;
 
@@ -20,6 +24,7 @@ int main(int argc, char* argv[]) {
     int i = 0;
 
     if (!test) {
+        free(string_url);
         free(url.main_domain);
         free(url.protocol);
         while (url.other_domains[i] != NULL) {
@@ -37,6 +42,7 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
+    free(string_url);
     free(url.main_domain);
     free(url.protocol);
     while (url.other_domains[i] != NULL) {
