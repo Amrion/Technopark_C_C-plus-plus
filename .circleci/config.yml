@@ -54,7 +54,7 @@ jobs:
       - run: |
              sudo apt-get update
              sudo apt-get install gcovr
-         project "www.mail.ru"
+             
       - run: |
              mkdir project/cmake-built
              cd project/cmake-built
