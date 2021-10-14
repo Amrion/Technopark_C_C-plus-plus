@@ -14,7 +14,7 @@ url_info* parser(char* url) {
         if (url[i] == '\0') {
             return NULL;
         }
-        i++;
+        ++i;
     }
 
     i = 0;
@@ -42,7 +42,7 @@ url_info* parser(char* url) {
     } else {
         while (url[i] != ':') {
             my_url->protocol[i] = url[i];
-            i++;
+            ++i;
         }
         i += 3;
     }
@@ -56,12 +56,12 @@ url_info* parser(char* url) {
     int k = 0;
     while (url[i] != '.') {
         my_url->main_domain[k] = url[i];
-        k++;
-        i++;
+        ++k;
+        ++i;
     }
     if (strcmp(my_url->main_domain, "www") == 0) {
         free(my_url->main_domain);
-        i++;
+        ++i;
         k = 0;
 
         my_url->main_domain = (char*) calloc(AVERANGE_LENGTH_NAME_DOM, sizeof (char));
@@ -72,12 +72,12 @@ url_info* parser(char* url) {
 
         while (url[i] != '.') {
             my_url->main_domain[k] = url[i];
-            k++;
-            i++;
+            ++k;
+            ++i;
         }
     }
     k = 0;
-    i++;
+    ++i;
 
     my_url->other_domains = (char**) calloc(AVERANGE_LENGTH_DOM * sizeof(char*), AVERANGE_LENGTH_DOM);
     if (!my_url->other_domains) {
@@ -108,16 +108,16 @@ url_info* parser(char* url) {
                 break;
             }
             my_url->other_domains[j][k] = url[i];
-            k++;
-            i++;
+            ++k;
+            ++i;
         }
         k = 0;
         if (url[i] == '?') {
             break;
         }
         if (url[i] != '\0') {
-            i++;
-            j++;
+            ++i;
+            ++j;
         }
     }
 
