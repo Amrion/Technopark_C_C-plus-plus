@@ -12,10 +12,10 @@ jobs:
       
       - run: |
             cd project/src
-            cppcheck --inconclusive --enable=all --language=c --error-exitcode=1 main.c
-            cppcheck --inconclusive --enable=all --language=c --error-exitcode=1 parser_url.c
-            cppcheck --inconclusive --enable=all --language=c --error-exitcode=1 print.c
-            cppcheck --inconclusive --enable=all --language=c --error-exitcode=1 gtest.cpp
+            cppcheck --inconclusive --enable=all --language=c --check-config --error-exitcode=1 main.c
+            cppcheck --inconclusive --enable=all --language=c --check-config --error-exitcode=1 parser_url.c
+            cppcheck --inconclusive --enable=all --language=c --check-config --error-exitcode=1 print.c
+            cppcheck --inconclusive --enable=all --language=c --check-config --error-exitcode=1 gtest.cpp
             
       - run: |
              sudo apt-get update 
