@@ -9,7 +9,7 @@
 #define AVERANGE_LENGTH_DOM 10
 #define AVERANGE_LENGTH 25
 #define AVERANGE_LENGTH_NAME_DOM 25
-#define BUFFER 151
+#define BUFFER 101
 #define APPR_LIMIT 7
 
 typedef struct {
