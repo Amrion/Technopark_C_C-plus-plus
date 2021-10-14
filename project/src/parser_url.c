@@ -33,6 +33,9 @@ url_info* parser(char* url) {
     }
 
     my_url->protocol = (char *) calloc(APPR_LIMIT, sizeof(char));
+    if (!my_url->protocol) {
+        return NULL;
+    }
 
     if (i == APPR_LIMIT) {
         my_url->protocol[0] = '-';
@@ -40,34 +43,42 @@ url_info* parser(char* url) {
     } else {
         while (url[i] != ':') {
             my_url->protocol[i] = url[i];
-            i++;
+            ++i;
         }
         i += 3;
     }
 
     my_url->main_domain = (char*) calloc(AVERANGE_LENGTH_NAME_DOM, sizeof(char));
+    if (!my_url->main_domain) {
+        return NULL;
+    }
+
 
     int k = 0;
     while (url[i] != '.') {
         my_url->main_domain[k] = url[i];
-        k++;
-        i++;
+        ++k;
+        ++i;
     }
     if (strcmp(my_url->main_domain, "www") == 0) {
         free(my_url->main_domain);
-        i++;
+        ++i;
         k = 0;
 
         my_url->main_domain = (char*) calloc(AVERANGE_LENGTH_NAME_DOM, sizeof (char));
+        if (!my_url->main_domain) {
+            return NULL;
+        }
+
 
         while (url[i] != '.') {
             my_url->main_domain[k] = url[i];
-            k++;
-            i++;
+            ++k;
+            ++i;
         }
     }
     k = 0;
-    i++;
+    ++i;
 
     my_url->other_domains = (char**) calloc(AVERANGE_LENGTH_DOM * sizeof(char*), AVERANGE_LENGTH_DOM);
     if (!my_url->other_domains) {
@@ -82,6 +93,10 @@ url_info* parser(char* url) {
     bool check_domain = false;
     while (url[i] != '\0') {
         my_url->other_domains[j] = (char*) calloc(AVERANGE_LENGTH, sizeof (char));
+        if (!my_url->other_domains[i]) {
+            return NULL;
+        }
+
         while (url[i] != '\0') {
             if (url[i] == '/') {
                 check_domain = true;
@@ -94,16 +109,16 @@ url_info* parser(char* url) {
                 break;
             }
             my_url->other_domains[j][k] = url[i];
-            k++;
-            i++;
+            ++k;
+            ++i;
         }
         k = 0;
         if (url[i] == '?') {
             break;
         }
         if (url[i] != '\0') {
-            i++;
-            j++;
+            ++i;
+            ++j;
         }
     }
 
