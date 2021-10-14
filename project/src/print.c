@@ -13,7 +13,7 @@
         if (printf("Доменная структура остальных и информация об адресе = %s ", url.other_domains[i]) < 0) {
             return 1;
         }
-        ++i;
+        i++;
     }
 
     return 0;
