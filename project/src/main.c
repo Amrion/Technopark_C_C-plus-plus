@@ -35,9 +35,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    free (string_url);
-    free_url(&url);
-    free (test);
+    if (argc == 0) {
+        free (string_url);
+        free_url(&url);
+        free (test);
+    } else {
+        free_url(&url);
+        free (test);
+    }
 
     return 0;
 }
