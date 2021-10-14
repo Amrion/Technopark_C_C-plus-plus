@@ -87,7 +87,7 @@ url_info* parser(char* url) {
                 check_domain = true;
                 break;
             }
-            if (check_domain == false & url[i] == '.') {
+            if (check_domain == false && url[i] == '.') {
                 break;
             }
             if (url[i] == '?') {
