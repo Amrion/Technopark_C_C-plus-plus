@@ -15,6 +15,7 @@ int main(int argc, char* argv[]) {
     } else {
         if (scanf("%71s", string_url) != 1) {
             free (test);
+            free (string_url);
             return 1;
         }
 
@@ -24,14 +25,14 @@ int main(int argc, char* argv[]) {
     int i = 0;
 
     if (!test) {
-        free(string_url);
-        free(url.main_domain);
-        free(url.protocol);
+        free (string_url);
+        free (url.main_domain);
+        free (url.protocol);
         while (url.other_domains[i] != NULL) {
-            free(url.other_domains[i]);
+            free (url.other_domains[i]);
             i++;
         }
-        free(url.other_domains);
+        free (url.other_domains);
 
         return 1;
     } else {
@@ -42,14 +43,14 @@ int main(int argc, char* argv[]) {
         return 1;
     }
 
-    free(string_url);
-    free(url.main_domain);
-    free(url.protocol);
+    free (string_url);
+    free (url.main_domain);
+    free (url.protocol);
     while (url.other_domains[i] != NULL) {
-        free(url.other_domains[i]);
+        free (url.other_domains[i]);
         i++;
     }
-    free(url.other_domains);
+    free (url.other_domains);
     free (test);
 
     return 0;
