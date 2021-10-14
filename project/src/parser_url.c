@@ -1,3 +1,6 @@
+#include <stdbool.h>
+#include <string.h>
+
 #include "main.h"
 
 url_info* parser(char* url) {

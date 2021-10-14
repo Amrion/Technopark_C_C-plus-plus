@@ -1,10 +1,7 @@
 #pragma once
 
-#include <stddef.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
-#include <stdbool.h>
 
 #define AVERANGE_LENGTH_DOM 10
 #define AVERANGE_LENGTH 25
@@ -21,3 +18,5 @@ typedef struct {
 url_info* parser(char*);
 
 int print(url_info);
+
+void free_url(url_info*);

@@ -3,36 +3,29 @@
 int main(int argc, char* argv[]) {
     url_info url = {url.protocol = "", url.main_domain = "", url.other_domains = NULL};
 
-    char* string_url = (char*) calloc(sizeof (char), BUFFER);
-    if (!string_url) {
-        return 1;
-    }
-
+    char* string_url = NULL;
     url_info* test = NULL;
 
     if (argc > 1) {
-        test = parser(argv[1]);
+        string_url = argv[1];
     } else {
+        string_url = (char*) calloc(sizeof (char), BUFFER);
+        if (!string_url) {
+            return 1;
+        }
+
         if (scanf("%71s", string_url) != 1) {
             free (test);
             free (string_url);
             return 1;
         }
-
-        test = parser(string_url);
     }
 
-    int i = 0;
+    test = parser(string_url);
 
     if (!test) {
         free (string_url);
-        free (url.main_domain);
-        free (url.protocol);
-        while (url.other_domains[i] != NULL) {
-            free (url.other_domains[i]);
-            i++;
-        }
-        free (url.other_domains);
+        free_url(&url);
 
         return 1;
     } else {
@@ -44,13 +37,7 @@ int main(int argc, char* argv[]) {
     }
 
     free (string_url);
-    free (url.main_domain);
-    free (url.protocol);
-    while (url.other_domains[i] != NULL) {
-        free (url.other_domains[i]);
-        i++;
-    }
-    free (url.other_domains);
+    free_url(&url);
     free (test);
 
     return 0;

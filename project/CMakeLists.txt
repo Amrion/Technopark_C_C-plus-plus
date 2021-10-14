@@ -16,7 +16,7 @@ include_directories(include)
 
 add_library(main STATIC ${LIB_SOURCE_FILES} ${LIB_HEADERS_FILES})
 
-add_executable(project src/main.c src/parser_url.c src/print.c)
+add_executable(project src/main.c src/parser_url.c src/print.c src/free_url.c)
 target_link_libraries(project main m -fprofile-arcs -ftest-coverage -fPIC)
 
 enable_testing()
