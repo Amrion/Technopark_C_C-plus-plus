@@ -34,6 +34,7 @@ int find_max(const char* arr, int size) {
     if (unlikely(num_proc == -1)) {
         return -1;
     }
+    printf("%ld", num_proc);
     int fd[num_proc][2];
 
     for (int i = 0; i < num_proc; ++i) {
@@ -50,11 +51,11 @@ int find_max(const char* arr, int size) {
 
         if (pid == 0) {
             if ( i == 11) {
-                size = (int)(ceil(SIZE/12) + (SIZE - ceil(SIZE/12) * 12));
+                size = (int)(ceil(SIZE/num_proc) + (SIZE - ceil(SIZE/num_proc) * num_proc));
             } else {
-                size = (int)ceil(SIZE/12);
+                size = (int)ceil(SIZE/num_proc);
             }
-            int res = find_max_one_proc((arr + (int)(ceil(SIZE/12) * i)), size);
+            int res = find_max_one_proc((arr + (int)(ceil(SIZE/num_proc) * i)), size);
             if (unlikely(res == -1)) {
                 return -1;
             }
