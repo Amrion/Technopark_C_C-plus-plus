@@ -20,7 +20,7 @@ TEST(FIND_C, SIZE_10000) {
     int size = 10000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
 
@@ -31,7 +31,7 @@ TEST(FIND_C, SIZE_1000000) {
     int size = 1000000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(264, find_max(arr, size));
@@ -41,7 +41,7 @@ TEST(FIND_C, SIZE_100000000) {
     int size = 100000000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(417, find_max(arr, size));
@@ -74,7 +74,7 @@ TEST_F(FIND_P, SIZE_10000) {
     int size = 10000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
 
@@ -85,7 +85,7 @@ TEST_F(FIND_P, SIZE_1000000) {
     int size = 1000000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(264, find_max(arr, size));
@@ -95,7 +95,7 @@ TEST_F(FIND_P, SIZE_100000000) {
     int size = 100000000;
     char* arr = (char *) calloc(size, sizeof (char));
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(417, find_max(arr, size));
