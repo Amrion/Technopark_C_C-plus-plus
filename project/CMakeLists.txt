@@ -4,8 +4,8 @@ project(project C CXX)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage")
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage")
+set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage -fPIC")
+set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -Wpedantic -fprofile-arcs -ftest-coverage -fPIC")
 
 include_directories(include)
 
@@ -28,7 +28,7 @@ find_package(Threads)
 
 include_directories(${GTEST_INCLUDE_DIRS})
 
-add_executable(gtest tests/gtest.cpp src/stopwatch.c)
-target_link_libraries(gtest ${GTEST_LIBRARIES} pthread)
+add_executable(gtest tests/timer_gtest.cpp src/stopwatch.c tests/find_gtests.cpp tests/main.cpp)
+target_link_libraries(gtest ${GTEST_LIBRARIES} pthread find_consistent_lib find_parallel_lib -ldl)
 
 

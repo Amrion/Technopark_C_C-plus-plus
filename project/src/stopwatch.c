@@ -1,14 +1,14 @@
 #include "main.h"
 #include <time.h>
 
-int timer(int (*func)(const char* arr, int size), const char* arr) {
+int timer(int (*func)(const char* arr, int size), const char* arr, int size) {
     if (unlikely((!func) || (!arr))) {
         return 1;
     }
     clock_t start, stop;
     start = clock();
 
-    int kol = func(arr, SIZE);
+    int kol = func(arr, size);
     if (unlikely(kol == -1)) {
         return 1;
     }

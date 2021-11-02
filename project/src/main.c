@@ -1,6 +1,4 @@
-#include <unistd.h>
 #include <dlfcn.h>
-#include <string.h>
 #include "main.h"
 
 int (*myfunc)(const char*, int size);
@@ -11,7 +9,7 @@ int main() {
         return 1;
     }
 
-    FILE* fp = fopen("../../symbols.txt", "r");
+    FILE* fp = fopen("../symbols.txt", "r");
     if (unlikely(!fp)) {
         free(arr);
 
@@ -26,7 +24,7 @@ int main() {
     }
 
     printf("Последовательная реализация\n");
-    if (timer(find_max, arr) == 1) {
+    if (timer(find_max, arr, SIZE) == 1) {
         free(arr);
         fclose(fp);
 
@@ -44,15 +42,15 @@ int main() {
     printf("Параллельная реализация\n");
 
     *(void**) (&myfunc) = dlsym(library, "find_max");
-    if (timer(myfunc, arr) == 1) {
-
+    if (timer(myfunc, arr, SIZE) == 1) {
+        dlclose(library);
         free(arr);
         fclose(fp);
-
 
         return 1;
     }
 
+    dlclose(library);
     free(arr);
     fclose(fp);
     return 0;
