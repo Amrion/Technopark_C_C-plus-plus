@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     machine:
-      image: ubuntu-2004:202104-01
+      image: ubuntu-2004:202107-02
      
     steps:
       - checkout
@@ -33,10 +33,13 @@ jobs:
       - run: |
              sudo apt-get install libgtest-dev
              pwd
+             ls -la
              cd .. 
              pwd
+             ls -la
              cd ..
              pwd
+             ls -la
              cd /usr/src/gtest
              sudo cmake .
              sudo make
