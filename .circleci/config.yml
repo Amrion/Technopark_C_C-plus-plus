@@ -58,9 +58,11 @@ jobs:
              
       - run: |
             cd project/src
+            ls -la
             cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 main.c
             cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 stopwatch.c
             cd ..
+            ls -la
             cd src_consistent
             cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 consistent.c
             cd ..
@@ -71,7 +73,7 @@ jobs:
             cd project/src
             clang-format -i -style=WebKit main.c
             clang-format -i -style=WebKit stopwatch.c
-            cd ..
+            cd .. 
             cd src_consistent
             clang-format -i -style=WebKit consistent.c
             cd ..
