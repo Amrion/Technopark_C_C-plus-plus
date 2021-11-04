@@ -51,11 +51,11 @@ int find_max(const char* arr, int size) {
 
         if (pid == 0) {
             if ( i == 11) {
-                size = (int)(ceil(SIZE/num_proc) + (SIZE - ceil(SIZE/num_proc) * num_proc));
+                size = (int)(round(SIZE/num_proc) + (SIZE - round(SIZE/num_proc) * num_proc));
             } else {
-                size = (int)ceil(SIZE/num_proc);
+                size = (int)round(SIZE/num_proc);
             }
-            int res = find_max_one_proc((arr + (int)(ceil(SIZE/num_proc) * i)), size);
+            int res = find_max_one_proc((arr + (int)(round(SIZE/num_proc) * i)), size);
             if (unlikely(res == -1)) {
                 return -1;
             }
