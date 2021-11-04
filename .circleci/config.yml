@@ -57,17 +57,8 @@ jobs:
              path: project/cmake-build-debug/coverage
              
       - run: |
-            cd project/src
-            ls -la
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 main.c
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 stopwatch.c
-            cd ..
-            ls -la
-            cd src_consistent
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 consistent.c
-            cd ..
-            cd src_parallel
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 parallel.c
+             cd project/cmake-build-debug
+             cppcheck —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 ./project
             
       - run: |
             cd project/src
