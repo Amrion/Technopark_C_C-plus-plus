@@ -7,10 +7,10 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror  -fprofile-arcs -ftest-coverage -fPIC")
 set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fprofile-arcs -ftest-coverage -fPIC")
 
+include_directories(include)
+
 add_compile_options(-fsanitize=address -fsanitize=leak -fsanitize=undefined)
 add_link_options(-fsanitize=address -fsanitize=leak -fsanitize=undefined)
-
-include_directories(include)
 
 set(FIND_CONSISTENT_LIB  ${PROJECT_SOURCE_DIR}/include/main.h src_consistent/consistent.c)
 add_library(find_consistent_lib STATIC ${FIND_CONSISTENT_LIB})
