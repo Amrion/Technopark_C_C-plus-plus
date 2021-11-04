@@ -36,9 +36,7 @@ jobs:
              cd /usr/src/gtest
              sudo cmake .
              sudo make
-             sudo cp *.a /usr/lib
-             sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
-             sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a
+             sudo cp -R /usr/src/gtest/lib/*.a /usr/lib/x86_64-linux-gnu
              
       - run: |
              sudo apt-get update
