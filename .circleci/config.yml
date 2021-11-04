@@ -80,4 +80,4 @@ jobs:
              
       - run: |
              cd project/cmake-build-debug
-             valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./project
+             valgrind --tool=memcheck --track-origins=yes --error-exitcode=1 ./project
