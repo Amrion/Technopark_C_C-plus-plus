@@ -1,7 +1,7 @@
 #include <dlfcn.h>
 #include "main.h"
 
-int (*myfunc)(const char*, int size);
+typedef int (*myfunc)(const char*, int size);
 
 int main() {
     char* arr = (char*) malloc(SIZE);
@@ -42,8 +42,16 @@ int main() {
 
     printf("Параллельная реализация\n");
 
-    *(void**) (&myfunc) = dlsym(library, "find_max");
-    if (timer(myfunc, arr, SIZE) == 1) {
+    myfunc find_max_parallel = dlsym(library, "find_max");
+    if (dlerror() != NULL)  {
+        free(arr);
+        dlclose(library);
+        fclose(fp);
+
+        return 1;
+    }
+
+    if (timer(find_max_parallel, arr, SIZE) == 1) {
         dlclose(library);
         free(arr);
         fclose(fp);
