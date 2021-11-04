@@ -56,5 +56,27 @@ jobs:
              path: project/cmake-build-debug/coverage
              
       - run: |
+            cd project/src
+            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 main.c
+            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 stopwatch.c
+            cd ..
+            cd src_consistent
+            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 consistent.c
+            cd ..
+            cd src_parallel
+            cppcheck --inconclusive --enable=all --language=c++ --check-config --suppress=missingIncludeSystem --error-exitcode=1 parallel.c
+            
+      - run: |
+            cd project/src
+            clang-format -i -style=WebKit main.c
+            clang-format -i -style=WebKit stopwatch.c
+            cd ..
+            cd src_consistent
+            clang-format -i -style=WebKit consistent.c
+            cd ..
+            cd src_parallel
+            clang-format -i -style=WebKit parallel.c
+             
+      - run: |
              cd project/cmake-build-debug
              valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./project
