@@ -9,7 +9,7 @@ jobs:
       - run: |
              cd ..
              cd ..
-             cd ubuntu
+             cd ..
              ls -la
       - run: |
              sudo apt-get update 
