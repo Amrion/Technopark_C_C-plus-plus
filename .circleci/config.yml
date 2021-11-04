@@ -77,7 +77,3 @@ jobs:
             cd ..
             cd src_parallel
             clang-format -i -style=WebKit parallel.c
-             
-      - run: |
-             cd project/cmake-build-debug
-             valgrind --tool=memcheck --track-origins=yes --error-exitcode=1 ./project
