@@ -11,6 +11,7 @@ jobs:
              cd ..
              cd ..
              cd usr
+             cd src
              ls -la
       - run: |
              sudo apt-get update 
