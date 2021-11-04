@@ -42,8 +42,8 @@ jobs:
              sudo apt-get install gcovr
              
       - run: |
-             mkdir project/cmake-built
-             cd project/cmake-built
+             mkdir project/cmake-build-debug
+             cd project/cmake-build-debug
              cmake ..
              make
              ./project
@@ -53,8 +53,8 @@ jobs:
              
              
       - store_artifacts:
-             path: project/cmake-built/coverage
+             path: project/cmake-build-debug/coverage
              
       - run: |
-             cd project/cmake-built
+             cd project/cmake-build-debug
              valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./project
