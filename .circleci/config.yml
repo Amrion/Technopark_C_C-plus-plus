@@ -10,6 +10,7 @@ jobs:
              cd ..
              cd ..
              cd ..
+             cd usr
              ls -la
       - run: |
              sudo apt-get update 
