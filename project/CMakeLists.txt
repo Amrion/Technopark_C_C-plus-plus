@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5.1)
+cmake_minimum_required(VERSION 3.14.7)
 project(project C CXX)
 
 set(CMAKE_C_STANDARD 99)
@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror  -fprofile-arcs -ftest-coverage -fPIC")
 set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fprofile-arcs -ftest-coverage -fPIC")
 
-add_compile_options(-fsanitize=address -fsanitize=leak -fsanitize=undefined)
+
 
 include_directories(include)
 
