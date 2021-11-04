@@ -4,19 +4,19 @@
 int (*myfunc)(const char*, int size);
 
 int main() {
-    char* arr = (char*) calloc(SIZE, sizeof (char ));
-    if (unlikely(!arr)) {
+    char* arr = (char*) malloc(SIZE);
+    if (!arr) {
         return 1;
     }
 
     FILE* fp = fopen("../symbols.txt", "r");
-    if (unlikely(!fp)) {
+    if (!fp) {
         free(arr);
 
         return 1;
     }
 
-    if (fgets(arr, SIZE + 1, fp) == NULL) {
+    if (fgets(arr, SIZE - 2, fp) == NULL) {
         free(arr);
         fclose(fp);
 
@@ -32,7 +32,8 @@ int main() {
     }
 
     void *library = dlopen("../cmake-build-debug/libfind_parallel_lib.so", RTLD_LAZY);
-    if (unlikely(!library)) {
+    if (!library) {
+        dlclose(library);
         free(arr);
         fclose(fp);
 
