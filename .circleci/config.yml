@@ -57,4 +57,4 @@ jobs:
              
       - run: |
              cd project/cmake-build-debug
-             valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --error-exitcode=1 ./project
+             valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./project
