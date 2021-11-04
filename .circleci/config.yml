@@ -64,7 +64,7 @@ jobs:
             cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 consistent.c
             cd ..
             cd src_parallel
-            cppcheck --inconclusive --enable=all --language=c++ --check-config --suppress=missingIncludeSystem --error-exitcode=1 parallel.c
+            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 parallel.c
             
       - run: |
             cd project/src
