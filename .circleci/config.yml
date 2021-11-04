@@ -73,7 +73,7 @@ jobs:
             cd project/src
             clang-format -i -style=WebKit main.c
             clang-format -i -style=WebKit stopwatch.c
-            cd ..
+            cd .. 
             cd src_consistent
             clang-format -i -style=WebKit consistent.c
             cd ..
