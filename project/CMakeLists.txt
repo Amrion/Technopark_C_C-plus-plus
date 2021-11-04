@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_EXE_LINKER_FLAGS "-fsanitize=address -fsanitize=leak -fsanitize=undefined")
 
 set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror -fsanitize=address -fsanitize=leak -fsanitize=undefined -fprofile-arcs -ftest-coverage -fPIC")
-set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fsanitize=address -fsanitize=leak -fsanitize=undefined -fprofile-arcs -ftest-coverage -fPIC")
+set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fprofile-arcs -ftest-coverage -fPIC")
 
 include_directories(include)
 
