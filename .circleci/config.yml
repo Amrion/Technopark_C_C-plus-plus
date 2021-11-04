@@ -32,7 +32,13 @@ jobs:
           
       - run: |
              sudo apt update
-             sudo apt install googletest
+             sudo apt-get install libgtest-dev
+             cd /usr/src/gtest
+             cmake .
+             make
+             sudo cp *.a /usr/lib
+             sudo ln -s /usr/lib/libgtest.a /usr/local/lib/gtest/libgtest.a
+             sudo ln -s /usr/lib/libgtest_main.a /usr/local/lib/gtest/libgtest_main.a
              
       - run: |
              sudo apt-get update
