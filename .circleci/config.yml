@@ -39,11 +39,9 @@ jobs:
              ls -la
              cd src
              ls -la
-             cd ..
-             cd include
+             cd lib
              ls -la
-             cd gtest
-             ls -la
+             pwd
              sudo cp -R /usr/src/gtest/*.a /usr/lib/x86_64-linux-gnu
              
       - run: |
