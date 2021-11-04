@@ -14,6 +14,8 @@ TEST(FIND_C, NULL_SIZE) {
     char* arr = (char *) calloc(2, sizeof (char));
 
     EXPECT_EQ(0, find_max(arr, size));
+
+    free(arr);
 }
 
 TEST(FIND_C, SIZE_10000) {
@@ -25,6 +27,9 @@ TEST(FIND_C, SIZE_10000) {
 
 
     EXPECT_EQ(184, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 TEST(FIND_C, SIZE_1000000) {
@@ -35,6 +40,9 @@ TEST(FIND_C, SIZE_1000000) {
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(264, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 TEST(FIND_C, SIZE_100000000) {
@@ -45,6 +53,9 @@ TEST(FIND_C, SIZE_100000000) {
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(417, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 class FIND_P : public ::testing::Test
@@ -68,6 +79,8 @@ TEST_F(FIND_P, NULL_SIZE) {
     char* arr = (char *) calloc(2, sizeof (char));
 
     EXPECT_EQ(0, find_max(arr, size));
+
+    free(arr);
 }
 
 TEST_F(FIND_P, SIZE_10000) {
@@ -79,6 +92,9 @@ TEST_F(FIND_P, SIZE_10000) {
 
 
     EXPECT_EQ(184, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 TEST_F(FIND_P, SIZE_1000000) {
@@ -89,6 +105,9 @@ TEST_F(FIND_P, SIZE_1000000) {
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(264, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 TEST_F(FIND_P, SIZE_100000000) {
@@ -99,6 +118,9 @@ TEST_F(FIND_P, SIZE_100000000) {
     fgets(arr, size + 1, fp);
 
     EXPECT_EQ(417, find_max(arr, size));
+
+    free(arr);
+    fclose(fp);
 }
 
 
