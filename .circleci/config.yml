@@ -7,13 +7,6 @@ jobs:
     steps:
       - checkout
       - run: |
-             cd ..
-             cd ..
-             cd ..
-             cd usr
-             cd src
-             ls -la
-      - run: |
              sudo apt-get update 
              sudo apt-get install cppcheck 
             
@@ -39,6 +32,12 @@ jobs:
           
       - run: |
              sudo apt-get install libgtest-dev
+             cd ..
+             cd ..
+             cd ..
+             cd usr
+             cd src
+             ls -la
              cd /usr/src/gtest
              sudo cmake .
              sudo make
