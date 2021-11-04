@@ -13,4 +13,6 @@ TEST(TIMER, NOT_NULL_ARGS) {
     char* arr = (char*) calloc(size, sizeof (char ));
 
     EXPECT_EQ(0, timer(find_max, arr, size));
+
+    free(arr);
 }
