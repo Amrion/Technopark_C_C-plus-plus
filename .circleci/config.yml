@@ -9,7 +9,6 @@ jobs:
       - run: |
              cd ..
              cd ..
-             cd ..
              cd ubuntu
              ls -la
       - run: |
