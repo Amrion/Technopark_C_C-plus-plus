@@ -4,7 +4,7 @@
 typedef int (*myfunc)(const char*, int size);
 
 int main() {
-    char* arr = (char*) malloc(SIZE);
+    char* arr = (char*) calloc(SIZE, sizeof (char));
     if (!arr) {
         return 1;
     }
