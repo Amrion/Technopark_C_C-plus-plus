@@ -32,15 +32,10 @@ jobs:
           
       - run: |
              sudo apt-get install libgtest-dev
-             cd ..
-             cd ..
-             cd ..
-             cd usr
-             cd src
-             ls -la
              cd /usr/src/gtest
              sudo cmake .
              sudo make
+             ls -la
              sudo cp -R /usr/src/gtest/*.a /usr/lib/x86_64-linux-gnu
              
       - run: |
