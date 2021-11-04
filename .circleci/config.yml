@@ -46,6 +46,10 @@ jobs:
              cd project/cmake-build-debug
              cmake ..
              make
+             pwd
+             ls -la
+             cd ..
+             ls -la
              ./project
              ./gtest
              mkdir coverage
