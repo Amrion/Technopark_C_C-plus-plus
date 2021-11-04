@@ -4,10 +4,11 @@ project(project C CXX)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 11)
 
-set(CMAKE_EXE_LINKER_FLAGS "-fsanitize=address -fsanitize=leak -fsanitize=undefined")
-
-set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror -fsanitize=address -fsanitize=leak -fsanitize=undefined -fprofile-arcs -ftest-coverage -fPIC")
+set(CMAKE_C_FLAGS "-g -O0 -Wall -Werror  -fprofile-arcs -ftest-coverage -fPIC")
 set(CMAKE_CXX_FLAGS "-g -O0 -Wall -Werror -fprofile-arcs -ftest-coverage -fPIC")
+
+add_compile_options(-fsanitize=address -fsanitize=leak -fsanitize=undefined)
+add_link_options(-fsanitize=address -fsanitize=leak -fsanitize=undefined)
 
 include_directories(include)
 
