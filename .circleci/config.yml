@@ -35,6 +35,9 @@ jobs:
              cd /usr/src/gtest
              sudo cmake .
              sudo make
+             pwd
+             ls -la
+             cd include
              ls -la
              sudo cp -R /usr/src/gtest/*.a /usr/lib/x86_64-linux-gnu
              
