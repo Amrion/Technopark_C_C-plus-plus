@@ -1,7 +1,6 @@
 #include "main.h"
 #include <sys/wait.h>
 #include <unistd.h>
-#include <math.h>
 
 int find_max_one_proc(const char* arr, int size) {
     if (unlikely(!arr)) {
@@ -50,11 +49,11 @@ int find_max(const char* arr, int size) {
 
         if (pid == 0) {
             if ( i == 11) {
-                size = (int)((SIZE/num_proc) + (SIZE - (SIZE/num_proc) * num_proc));
+                size = (size_t)((SIZE/num_proc) + (SIZE - (SIZE/num_proc) * num_proc));
             } else {
-                size = (int)(SIZE/num_proc);
+                size = (size_t)(SIZE/num_proc);
             }
-            int res = find_max_one_proc((arr + (int)((SIZE/num_proc) * i)), size);
+            int res = find_max_one_proc((arr + (size_t)((SIZE/num_proc) * i)), size);
             if (unlikely(res == -1)) {
                 return -1;
             }
