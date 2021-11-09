@@ -58,22 +58,8 @@ jobs:
              
       - run: |
              cd project/src
-             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 main.c
-             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 stopwatch.c
-             cd ..
-             cd src_consistent
-             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 consistent.c
-             cd ..
-             cd src_parallel
-             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 parallel.c
+             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 *.c
             
       - run: |
             cd project/src
-            clang-format -i -style=WebKit main.c
-            clang-format -i -style=WebKit stopwatch.c
-            cd .. 
-            cd src_consistent
-            clang-format -i -style=WebKit consistent.c
-            cd ..
-            cd src_parallel
-            clang-format -i -style=WebKit parallel.c
+            clang-format -i -style=WebKit *.c
