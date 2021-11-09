@@ -57,17 +57,15 @@ jobs:
              path: project/cmake-build-debug/coverage
              
       - run: |
-            cd project/src
-            ls -la
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 main.c
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 stopwatch.c
-            cd ..
-            ls -la
-            cd src_consistent
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 consistent.c
-            cd ..
-            cd src_parallel
-            cppcheck --inconclusive --enable=all --language=c --check-config --suppress=missingIncludeSystem --error-exitcode=1 parallel.c
+             cd project/src
+             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 main.c
+             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 stopwatch.c
+             cd ..
+             cd src_consistent
+             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 consistent.c
+             cd ..
+             cd src_parallel
+             cppcheck -I {{../include}} —inconclusive —enable=all —language=c —check-config —suppress=missingIncludeSystem —error-exitcode=1 parallel.c
             
       - run: |
             cd project/src
@@ -79,7 +77,3 @@ jobs:
             cd ..
             cd src_parallel
             clang-format -i -style=WebKit parallel.c
-             
-      - run: |
-             cd project/cmake-build-debug
-             valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --track-origins=yes --error-exitcode=1 ./project
